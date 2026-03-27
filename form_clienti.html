@@ -58,35 +58,7 @@ nav {
 .sidebar-title em { font-style:normal; color:var(--accent); }
 .sidebar-sub { font-size:.78rem; color:var(--muted); line-height:1.7; margin-bottom:48px; }
 
-.steps-nav { display:flex; flex-direction:column; }
-.step-item {
-  display:flex; align-items:flex-start; gap:16px;
-  padding:16px 0; border-bottom:1px solid var(--border);
-  transition:opacity .3s;
-}
-.step-item:last-child { border-bottom:none; }
-.step-item.done   { opacity:.4; }
-.step-item.active { opacity:1; }
-.step-item.future { opacity:.22; }
 
-.step-dot {
-  width:30px; height:30px; border-radius:50%; flex-shrink:0;
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Syne',sans-serif; font-size:.8rem; font-weight:700;
-  border:1px solid rgba(255,255,255,.15); color:var(--muted);
-  transition:all .35s; margin-top:1px;
-}
-.step-item.active .step-dot {
-  background:var(--accent); border-color:var(--accent); color:var(--bg);
-  box-shadow:0 0 20px rgba(232,255,71,.35);
-}
-.step-item.done .step-dot {
-  background:rgba(34,197,94,.12); border-color:rgba(34,197,94,.3); color:var(--green);
-}
-.step-label { font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
-.step-name  { font-size:.88rem; color:rgba(245,245,240,.55); }
-.step-item.active .step-label { color:var(--accent); }
-.step-item.active .step-name  { color:var(--white); font-weight:500; }
 
 .sidebar-footer {
   margin-top:auto; font-size:.7rem; color:rgba(255,255,255,.2);
@@ -272,13 +244,7 @@ nav {
       <div class="sidebar-title">Il tuo sito.<br><em>In 48 ore.</em></div>
       <div class="sidebar-sub">Rispondici in 10 minuti.<br>Pensiamo a tutto noi.</div>
     </div>
-    <nav class="steps-nav">
-      <div class="step-item active" id="nav-1"><div class="step-dot">1</div><div><div class="step-label">Step 01</div><div class="step-name">La tua attività</div></div></div>
-      <div class="step-item future" id="nav-2"><div class="step-dot">2</div><div><div class="step-label">Step 02</div><div class="step-name">Servizi & prezzi</div></div></div>
-      <div class="step-item future" id="nav-3"><div class="step-dot">3</div><div><div class="step-label">Step 03</div><div class="step-name">Stile & identità</div></div></div>
-      <div class="step-item future" id="nav-4"><div class="step-dot">4</div><div><div class="step-label">Step 04</div><div class="step-name">Contatti & social</div></div></div>
-      <div class="step-item future" id="nav-5"><div class="step-dot">5</div><div><div class="step-label">Step 05</div><div class="step-name">Foto & materiali</div></div></div>
-    </nav>
+    
     <div class="sidebar-footer">Dati protetti e riservati.<br>Non condivisi con terze parti.</div>
   </aside>
 
@@ -470,14 +436,7 @@ function updateUI(){
   document.getElementById('step-'+currentStep)?.classList.add('active');
   document.getElementById('progress').style.width=(currentStep/totalSteps*100)+'%';
   document.getElementById('nav-step').textContent=`Step ${currentStep} di ${totalSteps}`;
-  document.querySelectorAll('.step-item').forEach((el,i)=>{
-    el.classList.remove('active','done','future');
-    const n=i+1;
-    if(n<currentStep)el.classList.add('done');
-    else if(n===currentStep)el.classList.add('active');
-    else el.classList.add('future');
-    el.querySelector('.step-dot').innerHTML=n<currentStep?'✓':n;
-  });
+
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
