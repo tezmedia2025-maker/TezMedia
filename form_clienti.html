@@ -48,7 +48,8 @@ nav {
 .sidebar {
   background:var(--surface); border-right:1px solid var(--border);
   padding:48px 36px; display:flex; flex-direction:column;
-  position:relative; min-height:100%;
+  position:sticky; top:61px; height:calc(100vh - 61px);
+  overflow-y:auto; overflow-x:hidden; z-index:1;
 }
 .sidebar-title {
   font-family:'Syne',sans-serif; font-weight:800;
@@ -93,7 +94,7 @@ nav {
 }
 
 /* MAIN */
-.main { padding:60px 80px 80px; max-width:760px; min-width:0; }
+.main { padding:60px 80px 80px; max-width:760px; min-width:0; position:relative; z-index:2; background:var(--bg); }
 .progress-wrap { height:2px; background:var(--border); margin-bottom:56px; overflow:hidden; }
 .progress-fill { height:100%; background:var(--accent); transition:width .6s cubic-bezier(.4,0,.2,1); }
 
