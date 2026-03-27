@@ -2,6 +2,8 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inizia il tuo progetto — Tez Media</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -41,15 +43,16 @@ nav {
 
 .container {
   flex:1; display:grid; grid-template-columns:300px minmax(0,1fr);
-  margin-top:61px; align-items:start;
+  margin-top:61px; align-items:start; isolation:isolate;
 }
 
 /* SIDEBAR */
 .sidebar {
   background:var(--surface); border-right:1px solid var(--border);
   padding:48px 36px; display:flex; flex-direction:column;
-  position:sticky; top:61px; height:calc(100vh - 61px);
-  overflow-y:auto; overflow-x:hidden; z-index:1;
+  position:sticky; top:61px; max-height:calc(100vh - 61px);
+  overflow-y:auto; overflow-x:hidden; z-index:0;
+  align-self:start;
 }
 .sidebar-title {
   font-family:'Syne',sans-serif; font-weight:800;
@@ -66,7 +69,7 @@ nav {
 }
 
 /* MAIN */
-.main { padding:60px 80px 80px; max-width:760px; min-width:0; position:relative; z-index:2; background:var(--bg); }
+.main { padding:60px 80px 80px; max-width:760px; min-width:0; position:relative; z-index:10; background:var(--bg); isolation:isolate; }
 .progress-wrap { height:2px; background:var(--border); margin-bottom:56px; overflow:hidden; }
 .progress-fill { height:100%; background:var(--accent); transition:width .6s cubic-bezier(.4,0,.2,1); }
 
