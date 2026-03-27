@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inizia il tuo progetto — StudioWeb</title>
+<title>Inizia il tuo progetto — Tez Media</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -41,14 +41,14 @@ nav {
 
 .container {
   flex:1; display:grid; grid-template-columns:300px minmax(0,1fr);
-  min-height:calc(100vh - 61px); margin-top:61px;
+  margin-top:61px; align-items:start;
 }
 
 /* SIDEBAR */
 .sidebar {
   background:var(--surface); border-right:1px solid var(--border);
   padding:48px 36px; display:flex; flex-direction:column;
-  position:sticky; top:61px; height:calc(100vh - 61px); overflow-y:auto;
+  position:relative; min-height:100%;
 }
 .sidebar-title {
   font-family:'Syne',sans-serif; font-weight:800;
@@ -261,7 +261,7 @@ nav {
 <body>
 
 <nav>
-  <a class="nav-logo" href="landing_page_ads.html">Studio<span>Web</span></a>
+  <a class="nav-logo" href="index.html">Tez <span>Media</span></a>
   <div class="nav-step" id="nav-step">Step 1 di 5</div>
 </nav>
 
